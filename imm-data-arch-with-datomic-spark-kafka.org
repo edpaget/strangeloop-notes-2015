@@ -1,0 +1,51 @@
+#+TITLE: Immutable Data Architecture with Datomic, Spark and Kafka
+#+AUTHOR: Konrad Scorciapino & Mauro Lopes
+
+* Background
+- Microservices!!
+- Communicate using kafka and http 
+- Using Datomic as their database
+
+** Datomic
+- SQL gives you a 'board' of information
+- Datomic gives you 'piles' of data that are bound to the transaction
+- Get the 'current' state by looking down from the top
+- Stored kind of a as a Clojure Data Structure
+- Query with Clojure data structures
+
+* Training v Scoring
+- Training gives the constraints of a ML-model
+- Scoring goes from the trained Blackbox to score
+- Adding complexity to production
+- Affect how services run, makes them need to do more than their defined contract
+
+* Scoring
+- Need a central services
+- Read-only query service
+- ?Just a data warehouse
+- Call Mordor
+
+* Using it
+- Make queries across database using the same Clojure data structures
+- Provides full access to the data model of all their services
+- Once it's scored it's published into a new queue 
+
+* Spark
+- Use the cluster for both processing and holding data in the cluser
+- RDD is the central abstraction
+- Their main RDD is the data they use for training their Blackbox
+
+* Sharding Quries
+- Use a shard index and count for the number you want to take out
+
+* Analyzing (Data Access)
+- People tend to create proprietary ways to access
+- Made everyone use the central Mordor Service
+- Had people start saving queries
+
+
+
+
+
+
+`
