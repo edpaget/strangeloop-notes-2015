@@ -1,0 +1,102 @@
+#+TITLE; I see what you mean
+#+AUTHOR: Peter Alvaro
+
+Talk about a small language called daedelus
+
+* Abstraction is sometimes bad
+- Everything is about some kind of abstraction
+- To goal is only expose details that matter
+- Everyone abstracts
+- They're not fixed boundries
+- Library authors and writers aren't two different groups of people
+- Also people need to respect the users of their systems
+- Lots of bad abstractions in distributed systems
+
+* Author bio
+- Not a lifelong hacker
+- Started programming to get a job
+- Hacked as askjeeves on c and sql
+
+* Feels
+- SQL right, but doesn't feel good
+- C feels awesome, but so hard to get right
+- C about behaviours
+- SQL about program -> outcome
+
+* Really hard stuff dist sys
+- About tolerating failures
+- In unreliable situations there are so many failure
+- Failure modes depend on the semantics of functions and data
+
+* Can queries express distributed systems?
+- Queries over streaming and static state looks like general purpose computing
+- Web API as a JOIN
+- Data independence wins when change in data is greater than change in environment
+- YES!
+
+* Query Language Fragments
+- Conjunctive logic
+- SQL can't express recursion
+- Datalog does
+- The program and the database are the same in datalog
+- Programs where the execution order doesn't matter
+- Can be used to reason about distributed system metadata
+- Negation doesn't work in these kind of sets 
+- Can't have self-reference and negation
+
+* Query langauges are where you mean what you say
+- Negative connected to evaluation order
+- Lineage reveals robustness
+
+* Queries to Protocols
+- Conclusions that affect the static state of future conclustion
+- Time-dependent state
+- Need to represent non-determinism 
+- Represents logical time as an attribute of all stuff
+- In the daedelus model time is relative
+- Time can move backwards and forwards
+
+* Dedalus
+- Knowledge is ephemeral
+- Knowledge is local
+
+* Rules
+- Deductive - instanteous
+- Indudctive - the next timestamp
+- Asynchronos - Anytime stamp
+
+* Logic and time
+- Query relations abmong facts
+- Dedalus relationships between states
+- State is a construction. It's just induction if you know it you know it at the next event
+- State lets you make two events co-occur
+- @async lets you be honest about the logic you can't control
+- It makes sure you know when things are non-deterministic
+
+* Stable model 
+- Role of the dice
+- In distributed systme we have an infinite number of systems
+- Confluence is undecidable since it reduced to the halting problems 
+
+* Dedalus again
+- It lets you reason about what you can control 
+- When you remove negation from it you can make it deterministic
+- It's eventually consistent
+- It can't express all programs
+- You can have your state and distribute it too
+
+* Abstraction
+- hide states and representation
+- hide control flow since it doesn't exist in dedalus
+- illuminate data, change, and things you are uncertain about
+- The meaning of a program is just data
+- Unique model -> deterministic outcomes 
+- Introduced ~> bloom that gives you tools to tell you about determinism
+
+* Why invent languages
+- Languages are way to think about abstraction
+- Remember to respect users of our abstractions
+
+
+
+
