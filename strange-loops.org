@@ -1,0 +1,75 @@
+#+TITLE: Strange Loops
+#+AUTHOR: Katherine Ye
+
+Powerful notations make knot theory easier
+
+Repo at [[https://github.com/hypotext/knotation][hypotext/knotation]]
+
+* Knot Theory
+- Talk about knots in terms of crossings
+- The simplest knot is a circle
+- Links aren't knotes
+- Knots are equivelent when they're twisted, or overlaped or twisted
+
+* Briggs Notation
+- Knots are complicated and visual
+- Think about knots in terms of crossings
+- Briggs notation compresses the knots too much
+
+* Dowker notation
+- Notate each crossing by following the path of the knots
+- Say if the string passes over or under at the crossing
+- Could have picked any crossing or picked any strand
+- There isn't a one-to-one notation-to-knot system
+- Every knot has a Dowker Notation
+- Dowker notation can notate things which are not knots`
+
+* Knots HIstory
+- Lord Kelvin thought atoms might be knots
+
+** TODO Find wikipedia knot notation tables
+
+* Schools of Notation
+- Knot break down
+- Knot build up
+
+* Conway Notation
+- Knots are made of twists and tangles
+- Tangles are described by cardinal directions
+- Tangle become nots by connecting them in a circle
+- Knots without Conway notation exist
+- Using this notation you can generate them all on a computer!
+
+** Tangle arithmatic
+- Can add tangles by combing them
+- Can multiply by rotating the first
+
+** Knot applications
+- Describes how DNA is tangled
+
+* Equivalence
+- You can look at knots as a continued fraction
+- To check equivalence 
+- This works for all *rational* knots
+- Algebraic knots cannot be related by continued fraction equivalence
+
+* Modern Tabulations
+- Modern knot theorists use *Dowker* notations
+- Dowker is compact but hard to manipulate
+- Conway's system uses a large set of rules 
+- It makes it hard to use in computer program
+
+* Lessons
+- Break down v Build up
+- How easy for people?
+- How easy for machines?
+- Lots of rules? 
+- Is there a one-to-one mapping? 
+- What new manipulations does your notation encourage? 
+
+** Try new notations!
+
+* Sources
+- The Knot Book!
+
+
