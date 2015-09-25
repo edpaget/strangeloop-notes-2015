@@ -1,0 +1,25 @@
+#+TITLE: Service Discovery at Scale
+#+AUTHOR: Nitesh Kant
+
+* Service Discover?
+- Service discovery invovled figure out which machines are running a particular service
+- Static Mapping don't work since things in the cloud change all the time
+- Need a dynamic mapping of names of services -> the machiens they run on
+- Service discover is a central database that lets all the machines know where the other are
+
+* Which machines have the software deployed?
+- We can have machines self-report
+- We can have machines heartbeat the discover service
+
+* What happens if service discovery is down?
+- Don't know about new nodes
+
+* A co-ordination free service discovery service
+** Client/Server interaction
+- Startup/Shutdown/heartbeats
+- Use a stateful protocol to handle the connection
+- Heartbeats need to be bi-directional
+** Data conflicts
+- Seems like you don't resolve them
+- Just order things temporarily
+- Seems like this conflicts with advice about time in other talks
