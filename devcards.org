@@ -1,0 +1,31 @@
+#+TITLE: Literate Interactive Coding: Devcards
+#+AUTHOR: Bruce Hauman
+
+The point of the talk is to try to reduce the feedback cycle.
+
+* Problem
+- The edit/reload recreate state cycle is *too* long
+
+** Solution
+- Hot code reloading
+- Just write code that is reloadable
+
+* New Problem
+- You keep trying lots of different states
+
+** Solution
+- Devcards lets you have visual namespaces and code within
+
+* Devcards
+- Gives you a *lab* space
+- Don't have to have a place in the app code to try things out
+
+#+BEGIN_SRC clojure
+  #_(str "this is a comment holy shit")
+#+END_SRC
+
+- Gives you the =defcard= macro
+- Allows to you create a bunch of application states and see how they work
+- Have the tests run within the devcards!
+- Allows to write small tools using clojure's data structures to rewind and playback state
+
