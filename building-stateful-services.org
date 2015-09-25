@@ -1,0 +1,91 @@
+#+TITLE: Building/Scaling Stateful Services
+#+AUTHOR: Caitie McCaffrey
+
+For the past few users we've been building stateless services.
+
+* Problem
+- We've been using databases to hold all the state, so we can scale our services by just running more instances
+- Services aren't really stateless
+- They hold it in a database which provide consistency 
+- Eventually you have to scale the database as well
+
+* Data Locality
+- The service holds the data from the database after loading it the first time
+- Seems like you need sticky connections
+
+* Consistency Models
+- Some models of consistency are are only available in CP systems some are only only available in AP systems
+
+* Sticky connections
+- Make clients easier to reason about
+- Can make different kinds of consistency models available to your program
+- Can be implemented  as a direct connection
+- Machines need to implement back pressure 
+
+** Problems with DC
+- Load balancing is hard
+- Have to resume the sessions after a connection is lost
+
+* Cluster Memberships
+** Static Memberships
+- Just preload all the members of a cluster with their other members
+- Doesn't work systems that need to be HA
+** Dynamic Memberships
+- Be able to add new nodes for capacity at any time
+*** Gossip Protocols
+- Machine chat to each other to figure out who's alive and dead
+- Machines will eventually reach a stable point where they all agree
+- Worldviews are challendged under load or dynamic conditions
+*** Consensus Systems
+- You need a system to work together
+- Machines are always need to know everything about each other
+- Maybe slower? 
+
+* Work Distribution
+** Random Placement
+- Write to anywhere in the clsuer
+- Read from everywhere in the cluster to find what was written
+** Consistent Hashing
+- Deterministic Placement
+- DynamoDB style
+- You need headroom, but it may be difficult to handle if machines fail
+** Distributed Hash Table
+- Non-deterministic Placement
+
+* Scuba
+- is an in-memory HA database.
+- Static cluster memberhsip
+- Writes randomly
+- On ready it queries every machine
+- The querying machine composes the results and returns metrics about the query
+
+* Uber Ringpop
+- Node.js library that allows application layer sharding 
+- It uses Swim Gossip protocol
+- Consistent Hashing
+
+** TODO Github Link
+
+* Orleans
+- Is a runtime for building distributed systems using an Actor model
+- Used for Halo 4
+- Gossip
+- Consistent Hashing
+- Distributed Hash Table
+
+** Orleans DHT/Consistent Hashing
+- It does consistent hashing for a given id that tell it where the DHT is
+- Uses the DHT to find the actual actor you're looking for
+
+* Stateful Services
+** Memory Management
+- Get to have fun with the Garbage collector!
+- And the GC Profiler!
+- JVM/CLR will move data into different layers
+- Or you could *gasp* use C++ (or Rust!)
+
+** Reloading State
+- Recovering from crashes
+- Updating code
+- Will want to pull state even if client connection failed
+- Halo 4 had a problem on first connection but used an animate to hide it
