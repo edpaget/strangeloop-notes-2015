@@ -1,4 +1,4 @@
-#+TITLE; I see what you mean
+#+TITLE: I see what you mean
 #+AUTHOR: Peter Alvaro
 
 Talk about a small language called daedelus
