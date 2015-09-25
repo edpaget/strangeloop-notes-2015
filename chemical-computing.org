@@ -1,0 +1,74 @@
+#+TITLE: Chemical Computing
+#+AUTHOR: Carin Meier
+
+About chemical computing 
+
+Code is at [[https://github.com/gigasquid/chemical-computing][gigasquid/chemical-computing]]
+
+* Papers
+- Chemical Computer
+- Principles of Chemical Computer
+- Higher-Order Chemical Computing
+- Building systems with higher-order chemical computing
+
+** TODO Get Links to these papers
+
+* Storytime
+Basically everything computes. 
+- You can can think of biological and chemical processes of ways of computing
+
+* Goals
+Innovation comes from this cross fertilization of ideas
+Chemical computing is super new
+
+* Intro to Chemical Computing
+- Think of data in program as molecules
+- Functions are 'reactions'
+- Order doesn't matter
+- Need to mix them over and over? 
+- Converges on the answer?
+
+** Gamma Chemical Programming
+- Reaction Rules operates on a multi-sets of elements
+- Has a condition + action
+- Execution replacement with result emements
+- Solution happens when reactions reach steady state
+
+* Demo in ClojureScript
+That was super cool!
+
+* Higher-Order CC
+- What is the reactions where also molecules?
+- Molecules become functions + data
+- Molecules 'hatch' in to functions + data after being appliced
+
+** Reducing Reaction fuction
+- Instead of hactching all the input data you can only less from the function molecule
+- Need more stirring
+- Allow functions to exchange captured valus
+
+* Concurrency 
+- Order does not matter in chemical computing
+- So you can do things concurrently!
+
+* Self-organization
+When you create rules the systems that are generated become self-organizating
+
+** Ie Mail Systems
+- Membranes are inert molecules 
+- they serve to separate part of the reaction
+
+** Self-Healing
+- Add a crash molecule that causes servers to crash
+- Add a fix molecule that repairs crashed servers
+
+* Lessons Learns
+- It's all about the reations between functions and data
+- It lets you get the heart of the logic 
+- Lets you figure out how to eliminate the sequentiality of programming
+- Gives you tools to reason about concurrency 
+
+* Q&A
+- No-experimenting with more complex routes
+- Seems very similar to enterprise messages systems
+
