@@ -1,0 +1,55 @@
+#+TITLE: CRDTs Illustrated
+#+AUTHOR: Arnout Engelen
+
+This is an introductino to CRDTs
+
+* Goal
+- Consistency in distributed systems
+- Easy in the case of single server
+- There will be failures of single servers 
+
+* Strong eventual consistency
+- If nodes have seem the same events they should be in the same state
+
+* Op-Based Examples
+** Exactly Once Delivery
+- Is impossible when network failures occur
+- Who acknowledges the acknowledgement? 
+- At most Once Delivery (fire & forget)
+- At Least Once Delivery (retry)
+- *Semantics* are possible
+- Idempotence 
+
+** Counters
+- You can have addition and substraction
+- All operation it supports have to be commutative
+
+** Sets 
+*** Observed-Removed Set
+- Add something to set and add a unique marker
+- Remove the instance of the value has the unique marker
+
+** Three Weird Rules
+- All (concurrent) operations must commute
+- Require exactly-once delivery semantics
+- Require in-order delivery
+
+* State-based 
+- State-based allow retransmissions
+- The merge function must be commutative and associative 
+- Merge function takse the maximum contribution from all the states
+
+** Counter
+- Is increment-only
+
+** PN-Coutner
+- Is one increment-only counter + one decrement-only counter
+
+** Version Counter
+- Needs a concept on 'going forward'
+
+** Rules
+- Merge must be idempotent
+- Merge must be communtative and associative
+- there exists are a partial order on the states
+- merge and updates must converge moving forwards
