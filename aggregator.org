@@ -1,0 +1,92 @@
+#+TITLE: Aggregator: Map Reduce in the Type System
+#+AUTHOR: Dan Frank
+
+* What is the MR Big Picture?
+- You want to take a a bunch of raw data, and calculate properties about it
+- Want to go from those properties to deeper properties 
+- n-x dimensions to n-(x-1) dimensions
+
+* Hard bits
+- Need to know what the platform will do
+- Your log can contain big parts of the domain
+
+* Components
+- Group data points by entities of interest
+- Reduce a sequence of data points to a quantity of interest
+- Only going to look at the second one
+
+* Aggregator
+- Scala Trait in Algebird
+- Abstract algebra for Scala
+- TODO github link
+- Agnostic to the execution platform
+
+* Example
+
+#+BEGIN_SRC scala
+  Seq[Charge] => Int
+#+END_SRC
+
+There are computation types
+
+#+BEGIN_SRC scala
+  Seq[Change] => Set[Card] => Int
+#+END_SRC
+
+Which are intermediary types are part of a computation
+
+Aggregator is a trait with three parametersA
+
+#+BEGIN_SRC scala
+  Aggregator[A,B,C]
+
+  prepare: A => B
+  reduce: (B, B) => B
+  present: B => C
+#+END_SRC
+
+** prepare: A => B
+Gets one of the computation type
+
+** reduce: (B, B) => B
+Computes two members of the computation type into the final one
+
+** present: B => C
+Turns the reduced B into the answer type you want
+
+* Next Level
+** Composition and Reuse
+- Lots of well used functions int he Aggregator standard library
+- eg
+
+#+BEGIN_SRC scala
+  Aggregator.uniqueCount[Card]
+#+END_SRC
+
+- =composePrepare=
+
+#+BEGIN_SRC scala
+  Aggreatgor.uniqueCount[Card]
+    .composePrepare(c: Charge => c.card)
+#+END_SRC
+
+- You can approximate answers if you don't card about exactness
+
+#+BEGIN_SRC scala
+  SetSizeAggregator[Card](10)
+    .composePrepare(a: Chance => a.card)
+#+END_SRC
+
+** Aggregator execution patterns
+- Aggregators have an apply method that take a Seq of inputs
+- You can use it with a variety of backends
+
+** Aggregator and fraud at Stripe
+- Talking about the example of merchant fraud at Stripe
+- 'Totally insidious' 
+
+* Summingbird
+- Run MapReduce code as either Hadoop or Storm
+- Allows you to combine outputs from both
+
+
