@@ -1,0 +1,31 @@
+#+TITLE: Spectre Clojure's Missing Piece
+#+AUTHOR: Nathan Marz
+
+Spectre is a library for manipulating deeply nested datastructures
+
+* Probelm
+- Clojure tools look ind of ugly be default
+- Deeply nestsed the actual logic very hard to follow
+
+* Solution 
+- Spectre 
+
+#+BEGIN_SRC clojure
+  (select path world)
+  (transform path fn-to-apply world)
+  (setval path set world)
+
+  (srange start end)
+
+  LAST FIRST ALL
+#+END_SRC
+
+* =collect-one=
+- You can collect values as you navigate through the datastructure
+
+* Implementation
+- There's just a protocol to implement!
+- Is fast
+
+* Contribution
+- Looking for help
