@@ -1,0 +1,10 @@
+#+TITLE: Hopelessness and COnfidence in Distributed Systems Design
+#+AUTHOR: Camille Fournier
+
+- Lots of hope since system scales
+- Everything is a tire-fire
+- Dist systems always have tradoffs
+- Need to not worry about everything being perfect
+- Stuff fails all the time 
+- Shared Memory was a dumpster fire
+
