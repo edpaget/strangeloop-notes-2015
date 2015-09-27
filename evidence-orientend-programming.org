@@ -1,0 +1,101 @@
+#+TITLE: Evidence-Oriented Programming
+#+AUTHOR: Andreas Stefik
+
+* Background
+- Looking into programmers who are different
+- Esp. blind programmers
+
+** Questions
+- How hard is it to program blink?
+- Can you use tooling?
+- What about blind children? 
+- Why does C have the design it did?
+
+** Method
+- Asked people about it
+- Became friends with people over the internet
+
+** Children
+- Found blind children who were interested
+- It's *super* hard
+
+** Why hard?
+- C-Style languages were super hard
+- It's hard to hear what exactly is going on
+- Debuggers didn't work with screen readers
+- No educational programs for working with blind people
+
+** PLT
+- Proofs
+- Benchmarks
+- No usability research
+
+* History of Gathering evidence
+- Fraud Detection (snake oil) - 18th 
+- Blind Assessment - Early 19th Century
+- Double-Blind Assessment - Late 19th Century
+- Formal designs - 1930s
+- Randomized Control Trails - late 1930s
+- Mostly standardized by the 1950s
+- New developments include registering trials
+- Over time RCTs become the gold-standard for human trials
+
+* Big ?
+- Why are programming languages the way they are? 
+- There's no evidence for how programming languages are designed
+- Authors of Languages have *refused* to collect evidence
+- Anecdotal evidence doesn't help deal with programming languages
+
+* Evidence-Oriented Programmer
+- Stegan Hanenberg working on Aspect-Oriented Programming came up at the same time
+- Language Authors must allow people to suggested changes
+- Evidence from other techniques is fine as long as its rigorous
+- Invented Quorum to used Scientific Evidence for Human Factors
+
+* Quorum
+- Takes into account almost all evidence that exists
+
+#+BEGIN_SRC quorum
+  repeat 10 times
+    output "Hellow, World"
+  end
+#+END_SRC
+
+- Worst words are =for=, =while=, =foreach=.
+
+** Exceptions
+- Not a ton of evidence that they work well
+
+#+BEGIN_SRC quorum
+  check
+    number result = 12 / 0
+  detect e
+    output e:GetErrorMessage()
+  end
+#+END_SRC
+
+* Placebo
+- Randomly generate programming language
+- Randomo 
+- Perl and Java are no better than Randomo for Novices
+
+* Finding stuff out
+- =then= doesn't work
+- =x == 10= doesn't work
+
+* Type Systems
+- Static typing helps professionals
+- If you're a novice it negatively impacts you in a small way
+- Generics are good for professionals 
+- No evidence about undefined
+
+* Other systems
+- *Inheritance* little research
+- *Compiler* Errors lots of people are affected by compiler errors
+- *Concurrency* There are small affects showing Transactional memory is better than Threads
+
+* Why? 
+- Evidence that issues impact productivity
+- Solid evidence that designers don't take evidence into account
+- Evidence that it impacts students
+- Languages used in teaching change all the time
